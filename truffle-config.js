@@ -1,6 +1,8 @@
 require('ts-node/register')
 require('dotenv').config()
 
+
+
 const HDWalletProvider = require('@truffle/hdwallet-provider')
 
 const fs = require('fs')
@@ -72,7 +74,21 @@ module.exports = {
       gas: 8000000,
       gasPrice: 250000000000,
       skipDryRun: true,
-    }
+    },
+    fantomTestnet: {
+      provider: () => new HDWalletProvider(mnemonic, 'https://rpc.testnet.fantom.network/'),
+      chain_id: 4002,
+      network_id: 4002,
+      gas: 8000000,
+      gasPrice: 250000000000,
+      networkCheckTimeout: 99999999,
+      timeoutBlocks: 200,
+      skipDryRun: true 
+      
+    },
+    // fantomMainnet: {
+
+    // }
   },
 
   mocha: {
@@ -87,9 +103,10 @@ module.exports = {
   },
 
   plugins: ['solidity-coverage', 'truffle-contract-size', 'truffle-plugin-verify'],
-
+  
   api_keys: {
     etherscan: process.env.ETHERSCAN_API,
+    ftmscan: process.env.FTMSCAN_API
   },
 
   compilers: {

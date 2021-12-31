@@ -1,5 +1,14 @@
 # Scripts
 
+# Fantom Testnet
+
+
+
+
+
+
+# Scripts
+
 ## Payable Proxy Contract Deployment
 
 To deploy a new `PayableProxyController.sol`, it is recommended to use the `deployPayableProxyController` truffle script inside the `scripts` folder.

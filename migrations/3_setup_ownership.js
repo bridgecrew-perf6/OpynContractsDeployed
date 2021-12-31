@@ -8,7 +8,7 @@ const Controller = artifacts.require('Controller')
 // import config file
 const deploymentConfig = require('./deployment-config.json')
 
-module.exports = async function(deployer, network, accounts) {
+module.exports = async function (deployer, network, accounts) {
   const [deployerAddress] = accounts
 
   // new protocol owner
@@ -21,9 +21,9 @@ module.exports = async function(deployer, network, accounts) {
   const controller = await Controller.at(await addressbook.getController())
 
   // transfer ownership
-  await addressbook.transferOwnership(newOwner, {from: deployerAddress})
-  await whitelist.transferOwnership(newOwner, {from: deployerAddress})
-  await oracle.transferOwnership(newOwner, {from: deployerAddress})
-  await pool.transferOwnership(newOwner, {from: deployerAddress})
-  await controller.transferOwnership(newOwner, {from: deployerAddress})
+  await addressbook.transferOwnership(newOwner, { from: deployerAddress })
+  await whitelist.transferOwnership(newOwner, { from: deployerAddress })
+  await oracle.transferOwnership(newOwner, { from: deployerAddress })
+  await pool.transferOwnership(newOwner, { from: deployerAddress })
+  await controller.transferOwnership(newOwner, { from: deployerAddress })
 }
